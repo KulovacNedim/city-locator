@@ -1,16 +1,36 @@
 package dev.ned.city.locator.models;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class State {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToMany(mappedBy = "state", cascade = {
+            CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH
+    })
+    List<City> cities;
 
     public State() {
     }
 
     public State(String name) {
         this.name = name;
+    }
+
+    public void addCity(City city) {
+        if (cities == null) {
+            cities = new ArrayList<>();
+        }
+        cities.add(city);
+        city.setState(this);
     }
 
     public Long getId() {
@@ -27,6 +47,14 @@ public class State {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<City> cities) {
+        this.cities = cities;
     }
 
     @Override

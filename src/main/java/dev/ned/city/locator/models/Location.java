@@ -1,9 +1,16 @@
 package dev.ned.city.locator.models;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class Location {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "city_id")
     private City city;
     private String longitude;
     private String latitude;

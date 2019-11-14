@@ -1,10 +1,19 @@
 package dev.ned.city.locator.models;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class City {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @ManyToOne(cascade = {
+            CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "state_id")
     private State state;
 
     public City() {
