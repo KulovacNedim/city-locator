@@ -1,4 +1,4 @@
-package dev.ned.city.locator;
+package dev.ned.city.locator.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
