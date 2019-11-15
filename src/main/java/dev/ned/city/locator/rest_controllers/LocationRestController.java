@@ -1,4 +1,4 @@
-package dev.ned.city.locator.controllers;
+package dev.ned.city.locator.rest_controllers;
 
 import dev.ned.city.locator.models.Location;
 import dev.ned.city.locator.services.LocationService;
@@ -13,11 +13,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/location")
-public class LocationController {
+public class LocationRestController {
     private LocationService service;
     private String locationNotFound = "Location Not Found";
 
-    public LocationController(LocationService service) {
+    public LocationRestController(LocationService service) {
         this.service = service;
     }
 
