@@ -1,6 +1,9 @@
 package dev.ned.city.locator.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +17,8 @@ public class City {
             CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "state_id")
+    @JsonIgnoreProperties(value = "cities", allowSetters = true)
+    @NotNull(message = "State property for City must be specified!")
     private State state;
 
     public City() {
@@ -22,6 +27,14 @@ public class City {
     public City(String name, State state) {
         this.name = name;
         this.state = state;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -53,6 +66,15 @@ public class City {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, state);
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", state=" + state +
+                '}';
     }
 }
 

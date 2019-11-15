@@ -70,4 +70,13 @@ public class State {
     public int hashCode() {
         return Objects.hash(id, name);
     }
+
+    @Override
+    public String toString() {
+        return "State{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+//                ", cities=" + cities +
+                '}';
+    }
 }

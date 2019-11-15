@@ -1,6 +1,7 @@
 package dev.ned.city.locator.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -9,8 +10,11 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = {
+            CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "city_id")
+    @NotNull(message = "City property for Location must be specified!")
     private City city;
     private String longitude;
     private String latitude;
@@ -70,6 +74,16 @@ public class Location {
     @Override
     public int hashCode() {
         return Objects.hash(id, city, longitude, latitude);
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "id=" + id +
+                ", city=" + city +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
+                '}';
     }
 }
 
