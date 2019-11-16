@@ -31,16 +31,6 @@ public class LocationRestController {
         return ResponseEntity.status(HttpStatus.OK).body(service.getLocations());
     }
 
-//    @GetMapping(value = "/{id}", produces = "application/json")
-//    public ResponseEntity<Optional<Location>> getLocationById(@PathVariable Long id) {
-//        Optional<Location> location = service.getLocationById(id);
-//        if (location.get() == null) {
-//            System.out.println("fsdfdfdfd + " + location);
-//            return (ResponseEntity<Optional<Location>>) ResponseEntity.notFound();
-//        }
-//        return ResponseEntity.status(HttpStatus.OK).body(service.getLocationById(id));
-//    }
-
     @GetMapping(value = "/{id}", produces = "application/json")
     public ResponseEntity<?> getLocationById(@PathVariable Long id) {
         try {
