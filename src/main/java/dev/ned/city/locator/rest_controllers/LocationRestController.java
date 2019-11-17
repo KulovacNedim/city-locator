@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("/api/location")
 public class LocationRestController {
@@ -43,7 +44,8 @@ public class LocationRestController {
     }
 
     @PutMapping
-    public ResponseEntity<Location> updateLocation(@Valid @RequestBody Location location) {
+    public ResponseEntity<Location> updateLocation(@RequestBody Location location) {
+        System.out.println(location.toString());
         return ResponseEntity.status(HttpStatus.OK).body(service.saveOrUpdateLocation(location));
     }
 
