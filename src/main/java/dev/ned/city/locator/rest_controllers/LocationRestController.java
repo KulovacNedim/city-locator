@@ -45,7 +45,6 @@ public class LocationRestController {
 
     @PutMapping
     public ResponseEntity<Location> updateLocation(@RequestBody Location location) {
-        System.out.println(location.toString());
         return ResponseEntity.status(HttpStatus.OK).body(service.saveOrUpdateLocation(location));
     }
 
@@ -53,7 +52,7 @@ public class LocationRestController {
     public ResponseEntity<?> deleteLocation(@PathVariable Long id) {
         try {
             service.deleteLocation(id);
-            return ResponseEntity.status(HttpStatus.OK).body("Location deleted.");
+            return ResponseEntity.status(HttpStatus.OK).body(id);
         } catch (Exception exc) {
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND, locationNotFound, exc);
