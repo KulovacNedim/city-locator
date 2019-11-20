@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/location")
-@CrossOrigin(allowedHeaders = "https://city-locator-ui.herokuapp.com/")
+@CrossOrigin(allowedHeaders = "${cors.origin}")
 public class LocationRestController {
     private LocationService service;
     private String locationNotFound = "Location Not Found";
