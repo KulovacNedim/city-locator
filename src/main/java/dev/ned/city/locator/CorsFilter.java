@@ -16,7 +16,7 @@ import java.io.IOException;
 @Component
 public class CorsFilter implements Filter {
 
-    @Value( "${cors.origin}" )
+    @Value("${cors.origin}")
     private String corsOrigin;
 
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
