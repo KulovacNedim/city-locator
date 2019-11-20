@@ -1,6 +1,5 @@
 package dev.ned.city.locator;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -15,9 +14,6 @@ import java.io.IOException;
  */
 @Component
 public class CorsFilter implements Filter {
-
-    @Value("${cors.origin}")
-    private String corsOrigin;
 
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
