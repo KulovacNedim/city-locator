@@ -4,6 +4,9 @@ REST backend - SpringBoot application created to serve together with the [fronte
                              
 It is basic CRUD application integrating Google Maps.
 
+# Demo
+[Click here to see demo](https://city-locator-ui.herokuapp.com/)
+
 ## Technologies used in this project: 
 
 1. Spring Boot
@@ -17,6 +20,8 @@ These instructions will get you a copy of the project up and running on your loc
 ### Clone
 
 Clone this repo to your local machine using `https://github.com/KulovacNedim/city-locator.git`
+
+To run on local machine, do not forget to update ``database credentials`` and to set active profile to ``dev``
 
 ### Prerequisites
 
