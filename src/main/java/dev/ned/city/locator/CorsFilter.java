@@ -17,11 +17,11 @@ import java.io.IOException;
 public class CorsFilter implements Filter {
 
     @Value("${cors.origin}")
-    private String corsOrigin;
+    private String origin;
 
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
-        response.setHeader("Access-Control-Allow-Origin", corsOrigin);
+        response.setHeader("Access-Control-Allow-Origin", origin);
         response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Content-Length, X-Requested-With");
