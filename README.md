@@ -5,7 +5,7 @@ REST backend - SpringBoot application created to serve together with the [fronte
 It is basic CRUD application integrating Google Maps.
 
 # [Demo](https://city-locator-ui.herokuapp.com/)
-[Click here to see demo](https://city-locator-ui.herokuapp.com/)
+[Click here to see demo](https://city-locator-ui.herokuapp.com/) - it takes up to 20 sec to wake up frontend and backend app
 
 ## Technologies used in this project: 
 
